@@ -47,9 +47,9 @@ class Host:
     def paddleBounce(self):
         print("paddle bounce")
         if self.state.ballPosition[0] < 2:
-            self.ballDirection = BallDirection.UR if (self.state.ballPosition[1] - self.state.leftPaddlePosition + (self.state.PADDLE_HEIGHT/2)) / self.state.PADDLE_HEIGHT < 0 else BallDirection.DR
+            self.ballDirection = BallDirection.UR if (self.state.ballPosition[1] - (self.state.leftPaddlePosition + (self.state.PADDLE_HEIGHT/2))) < 0 else BallDirection.DR
         else:
-            self.ballDirection = BallDirection.UL if (self.state.ballPosition[1] - self.state.rightPaddlePosition + (self.state.PADDLE_HEIGHT/2)) / self.state.PADDLE_HEIGHT < 0 else BallDirection.DL
+            self.ballDirection = BallDirection.UL if (self.state.ballPosition[1] - (self.state.rightPaddlePosition + (self.state.PADDLE_HEIGHT/2))) < 0 else BallDirection.DL
 
     def isInACorner(self):
         (x, y) = self.state.ballPosition
