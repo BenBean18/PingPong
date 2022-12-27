@@ -76,7 +76,7 @@ class Host:
             print("I'm the host...the heck?")
         elif type(receivedPacket) == int:
             self.state.rightPaddlePosition = receivedPacket
-        if self.state.ballPosition[0] <= 0 or self.state.ballPosition[0] > self.state.BOARD_SIZE[0]:
+        if self.state.ballPosition[0] <= 0 or self.state.ballPosition[0] > self.state.BOARD_SIZE[0]-1:
             self.doABounce()
             self.state.ballPosition = (self.state.BOARD_SIZE[0] // 2, self.state.BOARD_SIZE[1] // 2)
         elif (self.state.ballPosition[0] == 0 and self.state.ballPosition[1] == 0) or (self.state.ballPosition[0] == self.state.BOARD_SIZE[0] and self.state.ballPosition[1] == self.state.BOARD_SIZE[1])\
@@ -107,7 +107,7 @@ class Host:
             try:
                 self.state.render()
                 self.physicsUpdate()
-                time.sleep(0.1)
+                time.sleep(0.05)
             except KeyboardInterrupt:
                 break
 
