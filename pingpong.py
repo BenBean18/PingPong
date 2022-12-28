@@ -9,7 +9,7 @@ class PingPong:
 
     def render(self):
         s = ""
-        s += "\033[2J" # clear screen
+        s += "\033[H" # clear screen
         for y in range(self.BOARD_SIZE[1]):
             for x in range(self.BOARD_SIZE[0]):
                 if x == 0 and y >= self.leftPaddlePosition and y <= self.leftPaddlePosition + self.PADDLE_HEIGHT:
